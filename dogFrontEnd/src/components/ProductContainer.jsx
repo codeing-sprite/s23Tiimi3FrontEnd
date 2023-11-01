@@ -1,29 +1,43 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Product from './Product';
 
 export default function PrductContainer() {
 
-    //todo init default
-    const [ product, setProduct ] = useState();
-    const [ products, setProducts ] = useState([{name: "nimi"}]);
+	//todo init default
+	const [product, setProduct] = useState();
+	const [products, setProducts] = useState([{ name: "nimi" }]);
 
-    const removeProduct = () => {
-        // api /delete
-    }
-    const editProduct = () => {
-        // api /update
-    }
-    const addProduct = () => {
-        // api /add
-    }
+	const REST_URL = 'http://localhost:8080/';
 
-    const renderProducts = products.map((item, index) => 
-      <Product name={item.name}/>
-    )
+	useEffect(() => listProducts(), [])
 
-    return (
-      <div className='productlist'>
-        {renderProducts}
-      </div>
-    )
-  }
+	const listProducts = () => {
+		axios.get(`${REST_URL}restitems`)
+			.then((response) => {
+				setProducts(response.data);
+				console.log(response.data);
+			})
+	}
+
+	const removeProduct = () => {
+		// api /delete
+
+	}
+	const editProduct = () => {
+		// api /update
+	}
+	const addProduct = () => {
+		// api /add
+	}
+
+	const renderProducts = products.map((item, _) =>
+		<Product item={item} />
+	)
+
+	return (
+		<div className='productlist'>
+			{renderProducts}
+			
+		</div>
+	)
+}
