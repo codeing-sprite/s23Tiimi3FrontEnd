@@ -1,20 +1,46 @@
 #root {
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
 }
 
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+
 .nav-bar {
+  height: 130px;
   display: flex;
   justify-content: space-between;
+  align-items: center;  
   background-color: rgb(199, 162, 235);
   color: black;
   border-radius: 4px;
-  text-decoration: inherit;
+  font-size: 35px;
   font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .product {
   background-color: teal;
   border-radius: 10px;
+  flex-grow: 1;
+  width: 33%;
+  height: 100%;
+  padding: 5px;
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: auto;
 }
