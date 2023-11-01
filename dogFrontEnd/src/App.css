@@ -13,3 +13,8 @@
   text-decoration: inherit;
   font-weight: 500;
 }
+
+.product {
+  background-color: teal;
+  border-radius: 10px;
+}

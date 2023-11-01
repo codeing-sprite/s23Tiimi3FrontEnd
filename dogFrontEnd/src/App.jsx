@@ -1,5 +1,5 @@
 import './App.css'
-import PrductContainer from './PrductContainer'
+import ProductContainer from "./components/ProductContainer"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -19,7 +19,7 @@ function App() {
             <Link to="/">Doggystore</Link>
             <Link to="about">About Us</Link>
           </div>
-          <PrductContainer />
+          <ProductContainer />
         </div>
       ),
     },
