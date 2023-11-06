@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Product from './Product';
 import axios from 'axios';
 
-export default function PrductContainer() {
+export default function ProductContainer() {
 
 	//todo init default
 	const [product, setProduct] = useState();
