@@ -25,7 +25,7 @@ export default function ProductContainer() {
 	)
 
 	return (
-		<div className='productlist'>
+		<div className='product-list'>
 			{renderProducts}
 			
 		</div>

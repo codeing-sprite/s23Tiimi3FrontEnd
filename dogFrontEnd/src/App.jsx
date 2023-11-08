@@ -1,47 +1,28 @@
+import { Link, Outlet } from 'react-router-dom'
 import './App.css'
-import ProductContainer from "./components/ProductContainer"
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-} from "react-router-dom"
+import { Button } from '@mui/material'
 
 
-function App() {
+export default function App() {
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (
-        <div>
-          <div className='nav-bar'>
-            <Link to="/">Doggystore</Link>
-            <Link to="about">About Us</Link>
-          </div>
-          <ProductContainer />
-        </div>
-      ),
-    },
-    {
-      path: "about",
-      element: (
-        <div>
-          <div className='nav-bar'>
-            <Link to="/">Doggystore</Link>
-            <Link to="about">About Us</Link>
-          </div>
-          <div>About</div>
-        </div>
-      ),
-    },
-  ]);
+  
   
   return (
     <>
-      <RouterProvider router={router} />
+        <nav>
+
+		<Button>
+		<Link to={"/"}>Doggystore</Link>
+		</Button>
+        <Button>
+			<Link to={"/about"}>About</Link>
+		</Button>
+
+		
+
+        </nav>
+		<Outlet/>
     </>
   )
 }
 
-export default App
