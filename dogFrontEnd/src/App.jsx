@@ -9,14 +9,14 @@ export default function App() {
   
   return (
     <>
-        <nav>
+        <nav className='nav-button'>
 
-		<Button>
-		<Link to={"/"}>Doggystore</Link>
-		</Button>
-        <Button>
-			<Link to={"/about"}>About</Link>
-		</Button>
+		
+		<Link to={"/"}><Button>Doggystore</Button></Link>
+		
+        
+			<Link to={"/about"}><Button>About</Button></Link>
+		
 
 		
 
