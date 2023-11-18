@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function ProductContainer() {
 
 	//todo init default
-	const [product, setProduct] = useState();
+	const [product, setProduct] = useState(false);
 	const [products, setProducts] = useState([]);
 
 	const REST_URL = 'http://localhost:8080';
@@ -21,7 +21,7 @@ export default function ProductContainer() {
 	}
 
 	const renderProducts = products.map(item =>
-		<Product key={item.id} item={item} />
+		<Product key={item.id} item={item} setProduct={setProduct} />
 	)
 
 	return (
