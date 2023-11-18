@@ -45,7 +45,7 @@ export default function ProductContainer() {
 		console.log(e.target.value)
 		setManufacturer(e.target.value)
 		if (e.target.value === "Select manufacturer"){
-			listManufacturers()
+			listProducts()
 		} else {
 			listManufacturersProducts(e.target.value)
 		}
@@ -60,12 +60,14 @@ export default function ProductContainer() {
 	)
 
 	return (
-		<div className='product-list'>
-			{renderProducts}
-		<select value={manufacturer} onChange={(e) => handleManufacturerChange(e)}>
-			<option value={"Select manufacturer"}>Select manufacturer</option>
-			{renderManufacturers}
-		</select>
-		</div>
+		<>
+			<div className='product-list'>
+				{renderProducts}
+			</div>
+			<select value={manufacturer} onChange={(e) => handleManufacturerChange(e)}>
+				<option value={"Select manufacturer"}>Select manufacturer</option>
+				{renderManufacturers}
+			</select>
+		</>
 	)
 }
