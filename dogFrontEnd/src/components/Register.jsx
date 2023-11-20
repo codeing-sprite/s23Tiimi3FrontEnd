@@ -29,7 +29,7 @@ export default function RegisterPage() {
       <Card className="user" sx={{maxWidth: 400, backgroundColor: ""}}>
         <CardActionArea>
           <CardContent>
-            <Typography>
+            <Typography component="div">
             <form onSubmit={(e) => register(e)}>
                 <label>
                     Username:
