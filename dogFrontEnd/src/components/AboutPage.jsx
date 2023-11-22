@@ -7,7 +7,7 @@ export default function Aboutpage() {
             Tämä inspiroi Jania ja Einoa perustamaan DoggyStoren tarjotakseen samanlaisia tyylikkäitä vaatteita koirille ympäri maailmaa.
         </p>
 
-        <div class="footer">
+        <div className="footer">
        
          <p>Omppu ja Rane, Doggystore Corporations 2023, 123456789-0</p>
         </div>

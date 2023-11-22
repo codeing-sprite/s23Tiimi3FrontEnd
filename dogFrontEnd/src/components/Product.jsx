@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography, Button } from "@mui/material"
+import { Card, CardActionArea, CardContent, CardMedia, Typography, Button, CardActions } from "@mui/material"
 
 export default function Product({item, setProduct}) {
 
@@ -25,11 +25,13 @@ export default function Product({item, setProduct}) {
             <Typography variant="h7">
               Price: €{item.price}
             </Typography>
-            <Typography>
-              <Button onClick={() => setProduct(item)}>View</Button>
-            </Typography>
           </CardContent>
         </CardActionArea>
+        <CardActions>
+            <Button size="large" color="primary" onClick={() => setProduct(item)}>
+              View
+            </Button>
+        </CardActions>
       </Card>
     )
   }
