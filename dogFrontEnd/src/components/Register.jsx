@@ -14,11 +14,17 @@ export default function RegisterPage() {
 
     const register = (e) => {
       e.preventDefault()
-        axios.post(`${REST_URL}/rest/register`, {
+      const newUser = {
           username: username,
           passwordHash: passwordHash,
           email: email,
           role: role
+      }
+
+        axios.post(`${REST_URL}/rest/register`, newUser,{
+          headers: {
+            'Content-Type' : 'application/json'
+          },
         })
 			.then((response) => {
 				console.log(response.data);
