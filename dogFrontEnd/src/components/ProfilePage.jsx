@@ -10,7 +10,7 @@ export default function ProfilePage() {
     return (
       <>
         {loggedUser ?
-        <Profile />
+        <Profile logedUser={loggedUser} />
         :
             (newUser ?
             <Register /> 

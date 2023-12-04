@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Box, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
 import Product from './Product';
 import axios from 'axios';
 
@@ -56,7 +57,7 @@ export default function ProductContainer() {
 	)
 
 	const renderManufacturers = manufacturers.map(item => 
-		<option key={item.id} value={item.id}>{item.name}</option>
+		<MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
 	)
 
 	return (
@@ -64,10 +65,25 @@ export default function ProductContainer() {
 			<div className='product-list'>
 				{renderProducts}
 			</div>
-			<select value={manufacturer} onChange={(e) => handleManufacturerChange(e)}>
+{/* 			<select value={manufacturer} onChange={(e) => handleManufacturerChange(e)}>
 				<option value={"Select manufacturer"}>Select manufacturer</option>
 				{renderManufacturers}
-			</select>
+			</select> */}
+			<Box sx={{ minWidth: 120 }}>
+				<FormControl fullWidth>
+					<InputLabel id="demo-simple-select-label">Manufacturer</InputLabel>
+					<Select
+					labelId="demo-simple-select-label"
+					id="demo-simple-select"
+					value={manufacturer}
+					label="Manufacturer"
+					onChange={handleManufacturerChange}
+					>
+					<MenuItem value={"Select manufacturer"}>Select manufacturer</MenuItem>
+					{renderManufacturers}
+					</Select>
+				</FormControl>
+				</Box>
 		</>
 	)
 }
