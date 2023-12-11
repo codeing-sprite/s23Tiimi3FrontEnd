@@ -79,7 +79,7 @@ export default function ProductContainer() {
             component="img"
             height="300"
             width="197"
-            image="../images/208645545_max.jpg"
+            image="https://img.fruugo.com/product/2/37/208649372_max.jpg"
             alt="product img"
           />
           <CardContent>
