@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
+import { Box, InputLabel, MenuItem, FormControl, Select, Card, CardActionArea, CardContent, CardMedia, Typography, Button, CardActions } from '@mui/material'
 import Product from './Product';
 import axios from 'axios';
 
@@ -24,6 +24,9 @@ export default function ProductContainer() {
 				setManufacturers(response.data);
 				console.log(response.data);
 			})
+			.catch(err => {
+				console.error(err);
+			})
 	}
 
 	const listProducts = () => {
@@ -32,6 +35,9 @@ export default function ProductContainer() {
 				setProducts(response.data);
 				console.log(response.data);
 			})
+			.catch(err => {
+				console.error(err);
+			})
 	}
 
 	const listManufacturersProducts = (manufacturerId) => {
@@ -39,6 +45,9 @@ export default function ProductContainer() {
 			.then((response) => {
 				setProducts(response.data);
 				console.log(response.data);
+			})
+			.catch(err => {
+				console.error(err);
 			})
 	}
 
@@ -62,15 +71,43 @@ export default function ProductContainer() {
 
 	return (
 		<>
-			<div className='product-list'>
-				{renderProducts}
-			</div>
-{/* 			<select value={manufacturer} onChange={(e) => handleManufacturerChange(e)}>
-				<option value={"Select manufacturer"}>Select manufacturer</option>
-				{renderManufacturers}
-			</select> */}
+		{product ? 
+		<div style={{height:'85%', display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center'}}>
+		<Card className="product" sx={{width: 400, backgroundColor: ""}}>
+        <CardActionArea>
+          <CardMedia 
+            component="img"
+            height="300"
+            width="197"
+            image="../images/208645545_max.jpg"
+            alt="product img"
+          />
+          <CardContent>
+            <Typography variant="h5" component="div">
+              {product.name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Color: {product.color}
+            </Typography>
+            <Typography gutterBottom variant="body2" color="text.secondary">
+              Size: {product.size}
+            </Typography>
+            <Typography variant="h7">
+              Price: €{product.price}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+            <Button size="large" color="primary" onClick={() => setProduct(false)}>
+              Back
+            </Button>
+        </CardActions>
+      </Card>
+	  </div> 
+	  : 	
+		<div>
 			<Box sx={{ minWidth: 120 }}>
-				<FormControl fullWidth>
+				<FormControl sx={{width:250, background:'white', marginLeft:'10%'}}>
 					<InputLabel id="demo-simple-select-label">Manufacturer</InputLabel>
 					<Select
 					labelId="demo-simple-select-label"
@@ -83,7 +120,13 @@ export default function ProductContainer() {
 					{renderManufacturers}
 					</Select>
 				</FormControl>
+				
 				</Box>
+			<div className='product-list' style={{height:'100%'}}>
+			{renderProducts}
+		</div>
+		</div>
+			}
 		</>
 	)
 }

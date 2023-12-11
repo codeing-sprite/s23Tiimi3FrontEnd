@@ -28,7 +28,10 @@ export default function RegisterPage() {
         })
 			.then((response) => {
 				console.log(response.data);
-			})  
+			})
+      .catch(err => {
+        console.error(err);
+      })
     }
 
     return (

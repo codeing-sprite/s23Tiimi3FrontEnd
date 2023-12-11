@@ -3,7 +3,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography, Button, CardA
 export default function Product({item, setProduct}) {
 
     return (
-      <Card className="product" sx={{maxWidth: 400, backgroundColor: ""}}>
+      <Card className="product" sx={{width: 400, backgroundColor: ""}}>
         <CardActionArea>
           <CardMedia 
             component="img"
