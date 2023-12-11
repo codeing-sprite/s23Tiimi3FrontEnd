@@ -5,33 +5,19 @@ import ProductContainer from './components/ProductContainer.jsx'
 import AboutPage from './components/AboutPage.jsx'
 import ProfilePage from './components/ProfilePage.jsx'
 import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        element: <ProductContainer/>,
-        index: true
-      },
-      {
-        path: "about",
-        element: <AboutPage/>
-      },
-      {
-        path: "Profile",
-        element: <ProfilePage/>
-      }
-
-    ]
-  }
-]);
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <HashRouter basename='/'>
+      <App/>
+      <Routes>
+        <Route path='/' Component={ProductContainer}/>
+        <Route path='/about' Component={AboutPage}/>
+        <Route path='/profile' Component={ProfilePage}/>
+      </Routes>
+    </HashRouter>
   </React.StrictMode>,
 )
